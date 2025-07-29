@@ -18,16 +18,6 @@
       overflow-x: hidden;
     }
 
-    #particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
     body>*:not(#particles) {
       position: relative;
       z-index: 1;
@@ -115,44 +105,6 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Script das partículas -->
-  <script>
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
-
-    const particles = Array.from({ length: 40 }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      r: Math.random() * 3 + 1,
-      dx: Math.random() * 0.5 - 0.25,
-      dy: Math.random() * 0.5 - 0.25
-    }));
-
-    function animateParticles() {
-      ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = 'rgba(0, 123, 255, 0.3)';
-      for (let p of particles) {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fill();
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < 0 || p.x > width) p.dx *= -1;
-        if (p.y < 0 || p.y > height) p.dy *= -1;
-      }
-      requestAnimationFrame(animateParticles);
-    }
-
-    window.addEventListener('resize', () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    });
-
-    animateParticles();
-  </script>
 </body>
 
 </html>
