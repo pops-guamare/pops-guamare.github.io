@@ -1,1 +1,0 @@
-# Procedimento Operacional Padrão
